@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col">
+    <h1>Publique seu anuncio abaixo.</h1>
+  </div>
+</div>
+
+<div class="card" style="width: 82rem; background-color: rgba(255, 127, 127, 0.068); margin: auto; min-height: 700px;">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="submit-form">
+          <div *ngIf="!submitted">
+            <div class="form-group">
+      
+              <label for="company">Empresa</label>
+              <input
+                type="text"
+                class="form-control"
+                id="company"
+                required
+                [(ngModel)]="anuncio.company"
+                name="company"
+                placeholder="Insira aqui o nome da empresa."
+              />
+            </div>
+      
+            <div class="form-group">
+              <label for="image">Imagem URL</label>
+              <input
+                class="form-control"
+                [(ngModel)]="anuncio.image"
+                name="image"
+                placeholder="Insira aqui a url da imagem."
+              />
+            </div>
+            <div class="row">
+              <div class="col-xs-12" *ngIf="anuncio.image" style="margin-top: 10px; margin-bottom: 10px;">
+                  <img [src]="anuncio.image" class="img-responsive" alt="URL inválida" id="img">
+              </div>
+          </div>
+      
+            <div class="form-group">
+              <label for="description">Descrição</label>
+              <textarea
+                class="form-control"
+                [(ngModel)]="anuncio.description"
+                name="description"
+                placeholder="Insira aqui descrições sobre a empresa."
+              ></textarea>
+            </div>
+      
+            <button (click)="saveAnuncio()" class="btn btn-success">Enviar</button>
+          </div>
+          <div *ngIf="submitted">
+            <h4>Anuncio publicado com sucesso!</h4>
+            <button class="btn btn-primary" (click)="newAnuncio()">Adicionar novo anuncio</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        coluna 2
+      </div>
+    </div>
+    
+    
+    
+    
+  </div>
+</div>
+

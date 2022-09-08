@@ -1,0 +1,65 @@
+<div *ngIf="currentAnuncio" class="edit-form">
+    <h2>Anuncio</h2>
+    <form>
+      <div class="form-group">
+        <label for="title">Empresa</label>
+        <input
+          type="text"
+          class="form-control"
+          id="company"
+          [(ngModel)]="currentAnuncio.company"
+          name="company"
+          placeholder="Alterar nome da empresa"
+        />
+      </div>
+      <div class="form-group">
+        <label for="Imagem">Imagem URL</label>
+        <input
+          type="text"
+          class="form-control"
+          id="image"
+          [(ngModel)]="currentAnuncio.image"
+          name="image"
+          placeholder="Inserir URL da imagem"
+          rows="6"
+        >
+      </div>
+      <div class="form-group">
+        <label for="description">Descrição</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentAnuncio.description"
+          name="description"
+          placeholder="Alterar descrição da empresa"
+          rows="6"
+        ></textarea>
+      </div>
+    </form>
+    <button
+      class="btn btn-outline-primary"
+      *ngIf="currentAnuncio.image"
+      (click)="updatePublished(false)"
+    >
+      UnPublish
+    </button>
+    <button
+      *ngIf="!currentAnuncio.image"
+      class="btn btn-outline-primary"
+      (click)="updatePublished(true)"
+    >
+      Publish
+    </button>
+    <button class="btn btn-outline-success" (click)="deleteTutorial()">
+      Delete
+    </button>
+    <button type="submit" class="btn btn-outline-danger" (click)="updateTutorial()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  <div *ngIf="!currentAnuncio">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>
