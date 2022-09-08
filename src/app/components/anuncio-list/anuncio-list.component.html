@@ -1,18 +1,21 @@
-<div class="list row">
-  <div class="col-md-6">
-    <h4>Lista de anuncios</h4>
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let anuncio of anuncios; let i = index"
-        [class.active]="i == currentIndex"
-        (click)="setActiveTutorial(anuncio, i)"
-      >
-        {{ anuncio.company }}
-      </li>
-    </ul>
+<div class="row">
+  <div class="col-6">
+    <div class="list row">
+      <h4>Lista de anuncios</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let anuncio of anuncios; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveAnuncio(anuncio, i)"
+        >
+          {{ anuncio.company }}
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="col-md-6">
+  
+  <div class="col-6">
     <div *ngIf="currentAnuncio">
       <app-anuncio-details
         (refreshList)="refreshList()"

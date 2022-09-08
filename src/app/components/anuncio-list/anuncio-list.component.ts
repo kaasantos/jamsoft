@@ -13,7 +13,6 @@ export class AnuncioListComponent implements OnInit {
   anuncios?: Anuncio[];
   currentAnuncio?: Anuncio;
   currentIndex = -1;
-  title = '';
 
   constructor(private anuncioService: AnuncioService) { }
 
@@ -39,7 +38,7 @@ export class AnuncioListComponent implements OnInit {
     });
   }
   
-  setActiveTutorial(anuncio: Anuncio, index: number): void {
+  setActiveAnuncio(anuncio: Anuncio, index: number): void {
     this.currentAnuncio = anuncio;
     this.currentIndex = index;
   }

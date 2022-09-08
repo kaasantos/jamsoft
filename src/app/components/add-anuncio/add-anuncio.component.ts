@@ -11,6 +11,7 @@ import { AnuncioService } from 'src/app/services/anuncio.service';
 export class AddAnuncioComponent implements OnInit {
   anuncio: Anuncio = new Anuncio();
   submitted = false;
+  companyOk = false;
 
   constructor(private anuncioService: AnuncioService) { }
 
@@ -19,13 +20,18 @@ export class AddAnuncioComponent implements OnInit {
 
   saveAnuncio(): void {
     this.anuncioService.create(this.anuncio).then(() => {
-      console.log('Created new item successfully!');
       this.submitted = true;
     });
+    alert("Anúncio cadastrado com sucesso!");
   }
 
   newAnuncio(): void {
     this.submitted = false;
     this.anuncio = new Anuncio();
   }
+
+  updateButton(status: boolean): void {
+    this.companyOk = !this.companyOk;
+  }
+
 }

@@ -1,8 +1,9 @@
 <div *ngIf="currentAnuncio" class="edit-form">
     <h2>Anuncio</h2>
     <form>
+
       <div class="form-group">
-        <label for="title">Empresa</label>
+        <label for="company">Empresa</label>
         <input
           type="text"
           class="form-control"
@@ -12,6 +13,7 @@
           placeholder="Alterar nome da empresa"
         />
       </div>
+
       <div class="form-group">
         <label for="Imagem">Imagem URL</label>
         <input
@@ -23,6 +25,11 @@
           placeholder="Inserir URL da imagem"
           rows="6"
         >
+
+      <div class="col-xs-12" *ngIf="currentAnuncio.image" style="margin-top: 10px; margin-bottom: 10px;">
+          <img [src]="currentAnuncio.image" class="img-responsive" alt="URL inválida" id="img">
+      </div>
+
       </div>
       <div class="form-group">
         <label for="description">Descrição</label>
@@ -36,30 +43,17 @@
           rows="6"
         ></textarea>
       </div>
+      
     </form>
-    <button
-      class="btn btn-outline-primary"
-      *ngIf="currentAnuncio.image"
-      (click)="updatePublished(false)"
-    >
-      UnPublish
-    </button>
-    <button
-      *ngIf="!currentAnuncio.image"
-      class="btn btn-outline-primary"
-      (click)="updatePublished(true)"
-    >
-      Publish
-    </button>
-    <button class="btn btn-outline-success" (click)="deleteTutorial()">
-      Delete
-    </button>
-    <button type="submit" class="btn btn-outline-danger" (click)="updateTutorial()">
+    <button class="btn btn-outline-success" (click)="updateAnuncio()">
       Update
     </button>
-    <p>{{ message }}</p>
+    <button type="submit" class="btn btn-outline-danger" (click)="deleteAnuncio()" script="alert('Anuncio deletado com sucesso')">
+      Delete
+    </button>
+
   </div>
   <div *ngIf="!currentAnuncio">
     <br />
-    <p>Cannot access this Tutorial...</p>
+    <p>Impossível acessar esse anuncio </p>
   </div>

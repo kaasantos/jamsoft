@@ -8,25 +8,30 @@ import { Anuncio } from '../models/anuncio.anuncio';
 
 export class AnuncioService {
   private dbPath = '/anuncio';
-  tutorialsRef: AngularFirestoreCollection<Anuncio>;
+  anunciosRef: AngularFirestoreCollection<Anuncio>;
 
   constructor(private db: AngularFirestore) {
-    this.tutorialsRef = db.collection(this.dbPath);
+    this.anunciosRef = db.collection(this.dbPath);
   }
 
   getAll(): AngularFirestoreCollection<Anuncio> {
-    return this.tutorialsRef;
+    return this.anunciosRef;
   }
 
   create(anuncio: Anuncio): any {
-    return this.tutorialsRef.add({ ...anuncio });
+    return this.anunciosRef.add({ ...anuncio });
   }
 
   update(id: string, data: any): Promise<void> {
-    return this.tutorialsRef.doc(id).update(data);
+    return this.anunciosRef.doc(id).update(data);
   }
 
   delete(id: string): Promise<void> {
-    return this.tutorialsRef.doc(id).delete();
+    return this.anunciosRef.doc(id).delete();
   }
+  get(id: string){
+    return this.anunciosRef.doc(id);
+  }
+
+
 }

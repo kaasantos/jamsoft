@@ -34,8 +34,8 @@
       </div>
 
       <form class="d-flex" role="search">
-          <input style="border: solid red 1px;" class="form-control" type="text" placeholder="Pesquisar strings">
-          <button class="btn btn-outline-danger" type="submit" style="margin-left: 2px;">Buscar</button>
+          <input style="border: solid red 1px;" class="form-control" type="text" placeholder="Pesquisar string" [(ngModel)]="search" name="search">
+          <button class="btn btn-outline-danger" type="submit" style="margin-left: 2px;" (click)="compareStrings()">Buscar</button>
       </form>
       
 

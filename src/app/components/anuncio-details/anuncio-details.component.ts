@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Anuncio } from 'src/app/models/anuncio.anuncio';
 import { AnuncioService } from 'src/app/services/anuncio.service';
 
@@ -15,51 +15,37 @@ export class AnuncioDetailsComponent implements OnInit {
   currentAnuncio: Anuncio = {
     company: '',
     description: '',
-    image: '',
+    image: ''
   };
-
-  message = '';
 
   constructor(private anuncioService:  AnuncioService) { }
 
   ngOnInit(): void {
-    this.message = '';
   }
 
   ngOnChanges(): void {
-    this.message = '';
     this.currentAnuncio = { ...this.anuncio };
   }
 
-  updatePublished(status: boolean): void {
-    if (this.currentAnuncio.id) {
-      this. anuncioService.update(this.currentAnuncio.id, { published: status })
-      .then(() => {
-        this.message = 'The status was updated successfully!';
-      })
-      .catch(err => console.log(err));
-    }
-  }
-
-  updateTutorial(): void {
+  updateAnuncio(): void {
     const data = {
-      title: this.currentAnuncio.company,
+      company: this.currentAnuncio.company,
       description: this.currentAnuncio.description,
       image: this.currentAnuncio.image
     };
     if (this.currentAnuncio.id) {
       this.anuncioService.update(this.currentAnuncio.id, data)
-        .then(() => this.message = 'A empresa foi editada com sucesso')
+        .then(() => alert('O anúncio foi editado com sucesso!'))
         .catch(err => console.log(err));
     }
   }
   
-  deleteTutorial(): void {
+  deleteAnuncio(): void {
     if (this.currentAnuncio.id) {
       this.anuncioService.delete(this.currentAnuncio.id)
         .then(() => {
+          alert("Anúncio deletado com sucesso!");
           this.refreshList.emit();
-          this.message = 'The tutorial was updated successfully!';
         })
         .catch(err => console.log(err));
     }
