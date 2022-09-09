@@ -1,88 +1,64 @@
 <div class="row">
   <div class="col">
-    <h1>Publique seu anuncio abaixo.</h1>
+    <h1 class="text-center">Publique seu anúncio abaixo</h1>
   </div>
 </div>
 
 <div class="container">
-  <div class="card" style="width: 82rem; background-color: rgba(255, 127, 127, 0.068); margin: auto; min-height: 700px;">
+  <div class="card"
+    style="width: 82rem; background-color: rgba(127, 219, 255, 0.068); margin: auto; max-height: 700px;">
     <div class="card-body">
       <div class="row">
         <div class="col-6">
           <div class="submit-form">
             <div *ngIf="!submitted">
               <div class="form-group">
-        
+
                 <label for="company">Empresa</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="company"
-                  [(ngModel)]="anuncio.company"
-                  name="company"
-                  placeholder="Insira aqui o nome da empresa."
-                  required
-                />
+                <input type="text" class="form-control" id="company" [(ngModel)]="anuncio.company" name="company"
+                  placeholder="Insira o nome da empresa." required />
               </div>
-        
+
               <div class="form-group">
                 <label for="image">Imagem URL</label>
-                <input
-                  class="form-control"
-                  [(ngModel)]="anuncio.image"
-                  name="image"
-                  placeholder="Insira aqui a url da imagem."
-                />
+                <input class="form-control" [(ngModel)]="anuncio.image" name="image"
+                  placeholder="Insira a url da imagem." />
               </div>
-              <div class="row">
-                <div class="col-xs-12" *ngIf="anuncio.image" style="margin-top: 10px; margin-bottom: 10px;">
-                    <img [src]="anuncio.image" class="img-responsive" alt="URL inválida" id="img">
-                </div>
-            </div>
-        
+
               <div class="form-group">
                 <label for="description">Descrição</label>
-                <textarea
-                  class="form-control"
-                  [(ngModel)]="anuncio.description"
-                  name="description"
-                  placeholder="Insira aqui descrições sobre a empresa."
-                ></textarea>
+                <textarea class="form-control" [(ngModel)]="anuncio.description" name="description"
+                  placeholder="Descrições sobre a empresa." rows="15" style="resize: none;"></textarea>
               </div>
-              
-            <button
-              class="btn btn-outline-primary"
-              *ngIf="anuncio.company"
-              (click)="updateButton(false)"
-              (click)="saveAnuncio()">
-              Enviar
-            </button>
 
-            <button
-              *ngIf="!anuncio.company"
-              class="btn btn-outline-primary"
-              (click)="updateButton(true)"               
-              disabled>Enviar
-            </button>
+              <div class="text-center">
+                <button class="btn btn-outline-primary" *ngIf="anuncio.company" (click)="updateButton(false)"
+                  (click)="saveAnuncio()" style="margin-top: 15px; resize: none;" >
+                  Enviar
+                </button>
+
+                <button *ngIf="!anuncio.company" class="btn btn-outline-primary" (click)="updateButton(true)"
+                  style="margin-top: 15px;" disabled>Enviar
+                </button>
+              </div>
+
 
             </div>
             <div *ngIf="submitted">
-              <h4>Anuncio publicado com sucesso!</h4>
-              <button class="btn btn-primary" (click)="newAnuncio()">Adicionar um novo anuncio.</button>
+              <h4>Anúncio publicado com sucesso!</h4>
+              <button class="btn btn-primary" (click)="newAnuncio()">Adicione um novo anúncio</button>
             </div>
 
           </div>
         </div>
-        <div class="col-6">
-          coluna 2
+        <div class="col-4">
+          <div class="row">
+            <div class="col-xs-12" *ngIf="anuncio.image" style="margin-top: 10px; margin-bottom: 10px;">
+              <img [src]="anuncio.image" class="img-responsive" alt="URL inválida" id="img" height="400px" width="300px">
+            </div>
+          </div>
         </div>
       </div>
-      
-      
-      
-      
     </div>
   </div>
-  
-  
 </div>

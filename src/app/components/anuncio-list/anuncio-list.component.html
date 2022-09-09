@@ -1,30 +1,30 @@
-<div class="row">
-  <div class="col-6">
-    <div class="list row">
-      <h4>Lista de anuncios</h4>
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="let anuncio of anuncios; let i = index"
-          [class.active]="i == currentIndex"
-          (click)="setActiveAnuncio(anuncio, i)"
-        >
-          {{ anuncio.company }}
-        </li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="col-6">
-    <div *ngIf="currentAnuncio">
-      <app-anuncio-details
-        (refreshList)="refreshList()"
-        [anuncio]="currentAnuncio"
-      ></app-anuncio-details>
-    </div>
-    <div *ngIf="!currentAnuncio">
-      <br />
-      <p>Por favor, selecione um anúncio.</p>
+<div class="container">
+  <div class="card"
+    style="width: 82rem; background-color: rgba(127, 219, 255, 0.068); margin: auto; min-height: 700px; margin-top: 72px
+    ;">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-4">
+          <div class="list row">
+            <h2 class="text-center" style="margin-bottom: 20px; margin-top: 0px;">Lista de anuncios</h2>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let anuncio of anuncios; let i = index"
+                [class.active]="i == currentIndex" (click)="setActiveAnuncio(anuncio, i)">
+                <strong> {{ anuncio.company }} </strong>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-8">
+          <div *ngIf="currentAnuncio">
+            <app-anuncio-details (refreshList)="refreshList()" [anuncio]="currentAnuncio"></app-anuncio-details>
+          </div>
+          <div *ngIf="!currentAnuncio">
+            <br />
+            <h1 class="text-center">Por favor, selecione um anúncio.</h1>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

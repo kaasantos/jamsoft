@@ -13,6 +13,7 @@ export class AddAnuncioComponent implements OnInit {
   submitted = false;
   companyOk = false;
 
+  img = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR38qkCpkErIoIRinQlzNh3_V9iVfarClRyM9pBbgzqx8XwiW8IEq67zwOlV-houAMyf-8&usqp=CAU';
   constructor(private anuncioService: AnuncioService) { }
 
   ngOnInit(): void {

@@ -6,3 +6,7 @@
     width:100%;
     max-width:600px;
 }
+.row{
+  display: flex;
+   align-items: center;
+}

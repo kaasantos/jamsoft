@@ -12,6 +12,9 @@ export class AnuncioDetailsComponent implements OnInit {
   @Input() anuncio?: Anuncio;
   @Output() refreshList: EventEmitter<any> = new EventEmitter();
 
+  search = '';
+  ok = true;
+
   currentAnuncio: Anuncio = {
     company: '',
     description: '',
@@ -48,6 +51,16 @@ export class AnuncioDetailsComponent implements OnInit {
           this.refreshList.emit();
         })
         .catch(err => console.log(err));
+    }
+  }
+
+  compareString(){
+    if(this.search === '' ){
+      alert('Por favor, digite algo!')
+    }else if(this.currentAnuncio.description?.toUpperCase().includes(this.search.toUpperCase()) === true){
+      alert('String encontrada! :D')
+    }else{
+      alert('String não encontrada! :( ')
     }
   }
 }

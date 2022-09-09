@@ -1,59 +1,83 @@
-<div *ngIf="currentAnuncio" class="edit-form">
-    <h2>Anuncio</h2>
-    <form>
-
-      <div class="form-group">
-        <label for="company">Empresa</label>
-        <input
-          type="text"
-          class="form-control"
-          id="company"
-          [(ngModel)]="currentAnuncio.company"
-          name="company"
-          placeholder="Alterar nome da empresa"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="Imagem">Imagem URL</label>
-        <input
-          type="text"
-          class="form-control"
-          id="image"
-          [(ngModel)]="currentAnuncio.image"
-          name="image"
-          placeholder="Inserir URL da imagem"
-          rows="6"
-        >
-
-      <div class="col-xs-12" *ngIf="currentAnuncio.image" style="margin-top: 10px; margin-bottom: 10px;">
-          <img [src]="currentAnuncio.image" class="img-responsive" alt="URL inválida" id="img">
-      </div>
-
-      </div>
-      <div class="form-group">
-        <label for="description">Descrição</label>
-        <textarea
-          type="text"
-          class="form-control"
-          id="description"
-          [(ngModel)]="currentAnuncio.description"
-          name="description"
-          placeholder="Alterar descrição da empresa"
-          rows="6"
-        ></textarea>
-      </div>
-      
-    </form>
-    <button class="btn btn-outline-success" (click)="updateAnuncio()">
-      Update
-    </button>
-    <button type="submit" class="btn btn-outline-danger" (click)="deleteAnuncio()" script="alert('Anuncio deletado com sucesso')">
-      Delete
-    </button>
-
+<div class="row">
+  <div class="col-6">
+    <div *ngIf="currentAnuncio" class="edit-form">
+      <h2  class="text-center">Anuncio</h2>
+      <form>
+  
+        <div class="form-group">
+          <label for="company">Empresa</label>
+          <input
+            type="text"
+            class="form-control"
+            id="company"
+            [(ngModel)]="currentAnuncio.company"
+            name="company"
+            placeholder="Alterar nome da empresa"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="Imagem">Imagem URL</label>
+          <input
+            type="text"
+            class="form-control"
+            id="image"
+            [(ngModel)]="currentAnuncio.image"
+            name="image"
+            placeholder="Inserir URL da imagem"
+            rows="6"
+          >
+  
+        <div class="col-xs-12" *ngIf="currentAnuncio.image" style="margin-top: 10px; margin-bottom: 10px;">
+            <img [src]="currentAnuncio.image" class="img-responsive" alt="URL inválida" id="img" height="300px" width="200px">
+        </div>
+  
+        </div>
+        <div class="form-group">
+          <label for="description">Descrição</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="description"
+            [(ngModel)]="currentAnuncio.description"
+            name="description"
+            placeholder="Alterar descrição da empresa"
+            rows="6"
+          ></textarea>
+        </div>
+        
+      </form>
+      <button class="btn btn-outline-success" (click)="updateAnuncio()">
+        Atualizar
+      </button>
+      <button type="submit" class="btn btn-outline-danger" (click)="deleteAnuncio()" script="alert('Anuncio deletado com sucesso')">
+        Deletar
+      </button>
+  
+    </div>
+    <div *ngIf="!currentAnuncio">
+      <br />
+      <p>Impossível acessar esse anuncio </p>
+    </div>
   </div>
-  <div *ngIf="!currentAnuncio">
-    <br />
-    <p>Impossível acessar esse anuncio </p>
+  <div class="col-6">
+    <h2  class="text-center">Buscar String</h2>
+    <div class="form-group">
+      <label for="company">Procurar string</label>
+      <input
+        type="text"
+        class="form-control"
+        id="search"
+        placeholder="Buscar palavra na descrição"
+        [(ngModel)]="search"
+        name="search"
+      />
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-lg" (click)="compareString()">yup</button>
+      </div>
+
+
+    </div>
   </div>
+</div>
+
