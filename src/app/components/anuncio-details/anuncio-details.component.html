@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-6">
     <div *ngIf="currentAnuncio" class="edit-form">
-      <h2  class="text-center">Anuncio</h2>
+      <h2  class="text-center">Anúncio</h2>
       <form>
   
         <div class="form-group">
@@ -57,7 +57,7 @@
     </div>
     <div *ngIf="!currentAnuncio">
       <br />
-      <p>Impossível acessar esse anuncio </p>
+      <p>Impossível acessar esse anúncio </p>
     </div>
   </div>
   <div class="col-6">
@@ -73,7 +73,7 @@
         name="search"
       />
       <div class="text-center">
-        <button type="submit" class="btn btn-primary btn-lg" (click)="compareString()">yup</button>
+        <button type="submit" class="btn btn-outline-primary btn-lg" (click)="compareString()">Buscar</button>
       </div>
 
 

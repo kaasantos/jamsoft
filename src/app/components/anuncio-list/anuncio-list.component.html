@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-4">
           <div class="list row">
-            <h2 class="text-center" style="margin-bottom: 20px; margin-top: 0px;">Lista de anuncios</h2>
+            <h2 class="text-center" style="margin-bottom: 20px; margin-top: 0px;">Lista de anúncios</h2>
             <ul class="list-group">
               <li class="list-group-item" *ngFor="let anuncio of anuncios; let i = index"
                 [class.active]="i == currentIndex" (click)="setActiveAnuncio(anuncio, i)">

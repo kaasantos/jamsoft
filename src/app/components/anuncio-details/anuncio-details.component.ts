@@ -21,7 +21,7 @@ export class AnuncioDetailsComponent implements OnInit {
     image: ''
   };
 
-  constructor(private anuncioService:  AnuncioService) { }
+  constructor(private anuncioService: AnuncioService) { }
 
   ngOnInit(): void {
   }
@@ -42,7 +42,7 @@ export class AnuncioDetailsComponent implements OnInit {
         .catch(err => console.log(err));
     }
   }
-  
+
   deleteAnuncio(): void {
     if (this.currentAnuncio.id) {
       this.anuncioService.delete(this.currentAnuncio.id)
@@ -54,12 +54,12 @@ export class AnuncioDetailsComponent implements OnInit {
     }
   }
 
-  compareString(){
-    if(this.search === '' ){
+  compareString() {
+    if (this.search === '') {
       alert('Por favor, digite algo!')
-    }else if(this.currentAnuncio.description?.toUpperCase().includes(this.search.toUpperCase()) === true){
+    } else if (this.currentAnuncio.description?.toUpperCase().includes(this.search.toUpperCase()) === true) {
       alert('String encontrada! :D')
-    }else{
+    } else {
       alert('String não encontrada! :( ')
     }
   }
